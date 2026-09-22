@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cnm43sm0ytsyv"]
+
+[ext_resource type="Script" uid="uid://vby54kalgk75" path="res://Scripts/PoolManager.gd" id="1_1hwbu"]
+[ext_resource type="PackedScene" uid="uid://dix356h1kitty" path="res://Scenes/Bullet.tscn" id="2_t2k3g"]
+
+[node name="PoolManager" type="Node" unique_id=743374569]
+script = ExtResource("1_1hwbu")
+scene_templates = {
+"res://Scenes/Bullet.tscn": ExtResource("2_t2k3g")
+}
+initial_pool_sizes = {
+"res://Scenes/Bullet.tscn": 5
+}

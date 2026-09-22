@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dix356h1kitty"]
+
+[ext_resource type="Script" uid="uid://vl3pj3hv8lku" path="res://Scripts/bullet.gd" id="1_14k46"]
+[ext_resource type="Texture2D" uid="uid://dewlhen067sfd" path="res://icon.svg" id="1_vlxeq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_csc6h"]
+
+[node name="Bullet" type="CharacterBody2D" unique_id=883344313]
+motion_mode = 1
+script = ExtResource("1_14k46")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=2116318800]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=199096354]
+shape = SubResource("CapsuleShape2D_csc6h")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=1997275246]
+modulate = Color(0.7443777, 0.74382114, 0, 1)
+scale = Vector2(0.140625, 0.1875)
+texture = ExtResource("1_vlxeq")
