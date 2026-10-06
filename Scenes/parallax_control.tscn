@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://cjbbe61mdplq4"]
+
+[ext_resource type="Script" uid="uid://dvq64vqp6ykjf" path="res://Scenes/parallax_control.gd" id="1_tikn2"]
+[ext_resource type="Texture2D" uid="uid://dewlhen067sfd" path="res://icon.svg" id="2_x7s15"]
+
+[node name="ParallaxControl" type="Control" unique_id=1927393050]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(576, 324)
+script = ExtResource("1_tikn2")
+
+[node name="FurthestBackLayer" type="TextureRect" parent="." unique_id=2146694256]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -115.0
+offset_top = -84.0
+offset_right = 115.0
+offset_bottom = 84.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(691, 408)
+offset_transform_enabled = true
+texture = ExtResource("2_x7s15")
+
+[node name="BackLayer" type="TextureRect" parent="." unique_id=79477488]
+modulate = Color(1, 1, 1, 0.41568628)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -513.0
+offset_top = -289.0
+offset_right = 513.0
+offset_bottom = 289.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(513, 289)
+offset_transform_enabled = true
+texture = ExtResource("2_x7s15")
+
+[connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]

@@ -1,24 +1,53 @@
 extends CharacterBody2D
 
+signal PlayerShipPass(Player : Node)
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
 
+var StartPos = Vector2.ZERO
+var is_shooting : bool = false
+
+func _ready():
+	StartPos = position
+	emit_signal("PlayerShipPass", self)
+	
 
 func _physics_process(delta):
-	pass
+<<<<<<< HEAD
+	get_input()
+	move_and_slide()
+=======
+	
+	var x_direction : float = Input.get_axis("MoveLeft","MoveRight")
+	var y_direction : float = Input.get_axis("MoveUp","MoveDown")
+	
+	velocity = Vector2(x_direction,y_direction).normalized()
+	velocity = velocity * SPEED
+	move_and_slide()
+	
+>>>>>>> 7c920071188f50fd90c5a6d9d770c83d99373764
 
 func _input(event):
-	if event.is_action_pressed("Shoot"):
-		var bullet := PoolManager.get_object("res://Scenes/Bullet.tscn")
+	if event.is_action_pressed("Shoot") && !is_shooting:
+		is_shooting = true
+		var bullet : Node = PoolManager.get_object("res://Scenes/Bullet.tscn")
 		bullet.spawn($Marker2D.global_position,Vector2.UP)
-		#Debug code to verify pool manager functionality by using a burst fire mode
-		print(bullet.name)
 		await get_tree().create_timer(.05).timeout
 		bullet = PoolManager.get_object("res://Scenes/Bullet.tscn")
 		bullet.spawn($Marker2D.global_position,Vector2.UP)
-		print(bullet.name)
 		await get_tree().create_timer(.05).timeout
 		bullet = PoolManager.get_object("res://Scenes/Bullet.tscn")
 		bullet.spawn($Marker2D.global_position,Vector2.UP)
+<<<<<<< HEAD
 		print(bullet.name)
+
+func get_input():
+	var input_direction = Input.get_vector("left", "right", "up", "down")
+	velocity = input_direction * 300
+=======
+		await get_tree().create_timer(.35).timeout
+		is_shooting = false
+
+func get_start_pos() -> Vector2:
+	return position
+>>>>>>> 7c920071188f50fd90c5a6d9d770c83d99373764

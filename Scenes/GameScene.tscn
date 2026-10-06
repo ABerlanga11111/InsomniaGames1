@@ -1,8 +1,25 @@
 [gd_scene format=3 uid="uid://074j48fqqtxb"]
 
+[ext_resource type="PackedScene" uid="uid://cjbbe61mdplq4" path="res://Scenes/parallax_control.tscn" id="1_4bvgx"]
 [ext_resource type="PackedScene" uid="uid://c44pp5c3o6hr" path="res://Scenes/PlayerChar.tscn" id="1_eqhe0"]
 
-[node name="GameScene" type="Node2D" unique_id=614334092]
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1226773]
 
+<<<<<<< HEAD
 [node name="CharacterBody2D" parent="." unique_id=1348765778 instance=ExtResource("1_eqhe0")]
 position = Vector2(477, 651)
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1731829070]
+position = Vector2(-477, -651)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1940675905]
+=======
+[node name="ParallaxControl" parent="." unique_id=1927393050 instance=ExtResource("1_4bvgx")]
+
+[node name="GameScene" type="Node2D" parent="." unique_id=614334092]
+
+[node name="PlayerShip" parent="GameScene" unique_id=1348765778 instance=ExtResource("1_eqhe0")]
+position = Vector2(576, 323)
+
+[connection signal="PlayerShipPass" from="GameScene/PlayerShip" to="ParallaxControl" method="_on_player_ship_player_ship_pass"]
+>>>>>>> 7c920071188f50fd90c5a6d9d770c83d99373764
