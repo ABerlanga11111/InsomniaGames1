@@ -1,16 +1,19 @@
-extends CharacterBody2D
+extends Area2D
 
 
-const SPEED = 25.0
+const SPEED = 250.0
 var direction := Vector2.UP
 var _pool_manager: Node
+
+var velocity : Vector2 = Vector2.ZERO
 
 @onready var notifier: VisibleOnScreenNotifier2D = $VisibleOnScreenNotifier2D
 
 
 func _ready() -> void:
+	pass
 	#return to the pool when leaving screen (_ready() runs once, so connecting here is fine)
-	notifier.screen_exited.connect(return_to_pool) # Should leave screen when it hits something so this'll work for our purposes
+	#notifier.screen_exited.connect(return_to_pool) # Should leave screen when it hits something so this'll work for our purposes
 
 func set_pool_manager(manager: Node) -> void:
 	_pool_manager = manager
@@ -28,11 +31,15 @@ func reset() -> void:
 
 func _physics_process(delta):
 	velocity = direction * SPEED
-	move_and_collide(velocity)
+	global_position += velocity * delta
 
 func return_to_pool() -> void:
 	if _pool_manager:
 		#avoid returning during physics; defer for safety
-		_pool_manager.call_deferred("return_object", self, scene_file_path)
+		_pool_manager.return_object(self, "res://Scenes/Bullet.tscn")
 	else:
 		queue_free()
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	return_to_pool()

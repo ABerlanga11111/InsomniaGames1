@@ -9,5 +9,5 @@ scene_templates = {
 "res://Scenes/Bullet.tscn": ExtResource("2_t2k3g")
 }
 initial_pool_sizes = {
-"res://Scenes/Bullet.tscn": 5
+"res://Scenes/Bullet.tscn": 6
 }
