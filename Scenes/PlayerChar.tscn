@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cv8456dix0n1s" path="res://Scripts/player_char.gd" id="1_6ayww"]
 [ext_resource type="Texture2D" uid="uid://dewlhen067sfd" path="res://icon.svg" id="2_5jrxl"]
+[ext_resource type="Resource" uid="uid://b3jvaopn3gyco" path="res://Resources/PlayerStats/BasicPlayerStats.tres" id="2_q56y2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ayww"]
 size = Vector2(120, 124)
@@ -9,6 +10,7 @@ size = Vector2(120, 124)
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1348765778]
 motion_mode = 1
 script = ExtResource("1_6ayww")
+Stats = ExtResource("2_q56y2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1859138091]
 shape = SubResource("RectangleShape2D_6ayww")

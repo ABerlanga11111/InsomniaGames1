@@ -2,12 +2,18 @@
 
 [ext_resource type="Script" uid="uid://vby54kalgk75" path="res://Scripts/PoolManager.gd" id="1_1hwbu"]
 [ext_resource type="PackedScene" uid="uid://dix356h1kitty" path="res://Scenes/Bullet.tscn" id="2_t2k3g"]
+[ext_resource type="PackedScene" uid="uid://dpjbhcfbuqh2e" path="res://Scenes/enemy_bullet_basic.tscn" id="3_obn35"]
+[ext_resource type="PackedScene" uid="uid://djqn0nl68fgwd" path="res://Scenes/enemy_basic_template.tscn" id="4_5ylw8"]
 
 [node name="PoolManager" type="Node" unique_id=743374569]
 script = ExtResource("1_1hwbu")
 scene_templates = {
-"res://Scenes/Bullet.tscn": ExtResource("2_t2k3g")
+"res://Scenes/Bullet.tscn": ExtResource("2_t2k3g"),
+"res://Scenes/enemy_basic_template.tscn": ExtResource("4_5ylw8"),
+"res://Scenes/enemy_bullet_basic.tscn": ExtResource("3_obn35")
 }
 initial_pool_sizes = {
-"res://Scenes/Bullet.tscn": 6
+"res://Scenes/Bullet.tscn": 10,
+"res://Scenes/enemy_basic_template.tscn": 5,
+"res://Scenes/enemy_bullet_basic.tscn": 10
 }

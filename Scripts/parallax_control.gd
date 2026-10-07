@@ -21,8 +21,8 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if PlayerShip:
 		var PlayerLocation : Vector2 = PlayerShip.get_global_position()
-		FurthestBackLayer.set_position(Vector2((PlayerLocation.x-PlayerStart.x)/FBLScale, (PlayerLocation.y-PlayerStart.y)/FBLScale))
-		BackLayer.set_position(Vector2((PlayerLocation.x-PlayerStart.x)/BLScale, (PlayerLocation.y-PlayerStart.y)/BLScale))
+		FurthestBackLayer.set_position(Vector2(((PlayerLocation.x-PlayerStart.x)/FBLScale)-115.0, ((PlayerLocation.y-PlayerStart.y)/FBLScale)-84.0))
+		BackLayer.set_position(Vector2(((PlayerLocation.x-PlayerStart.x)/BLScale)+63.0, ((PlayerLocation.y-PlayerStart.y)/BLScale)+35.0))
 	else:
 		pass
 	pass

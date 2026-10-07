@@ -1,7 +1,11 @@
 extends Area2D
 
+class_name Bullet
 
-const SPEED = 250.0
+enum StatsKey { Damage, Speed, Scale }
+var speed : float
+var damage : float
+
 var direction := Vector2.UP
 var _pool_manager: Node
 
@@ -19,10 +23,13 @@ func set_pool_manager(manager: Node) -> void:
 	_pool_manager = manager
 
 #Initialization instead of _ready(), call when pulled out of pool manager
-func spawn(start_position: Vector2, travel_direction: Vector2) -> void:
+func spawn(start_position: Vector2, travel_direction: Vector2, NewBulletStats : Array) -> void:
 	#start_position should be a 2dMarker just in front of player char, travel direction should just be Vector2.UP
 	global_position = start_position
 	direction = travel_direction.normalized()
+	damage = NewBulletStats[StatsKey.Damage]
+	speed = NewBulletStats[StatsKey.Speed]
+	scale = NewBulletStats[StatsKey.Scale]
 	rotation = (direction.angle() + PI/2)
 	
 
@@ -30,7 +37,7 @@ func reset() -> void:
 	velocity = Vector2.ZERO
 
 func _physics_process(delta):
-	velocity = direction * SPEED
+	velocity = direction * speed
 	global_position += velocity * delta
 
 func return_to_pool() -> void:
@@ -43,3 +50,8 @@ func return_to_pool() -> void:
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	return_to_pool()
+
+
+func _on_body_entered(body):
+	if body is Enemy:
+		body.take_damage(damage)

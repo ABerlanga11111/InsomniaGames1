@@ -2,14 +2,58 @@
 
 [ext_resource type="PackedScene" uid="uid://cjbbe61mdplq4" path="res://Scenes/parallax_control.tscn" id="1_4bvgx"]
 [ext_resource type="PackedScene" uid="uid://c44pp5c3o6hr" path="res://Scenes/PlayerChar.tscn" id="1_eqhe0"]
+[ext_resource type="PackedScene" uid="uid://djqn0nl68fgwd" path="res://Scenes/enemy_basic_template.tscn" id="3_3mbwn"]
 
-[node name="CanvasLayer" type="CanvasLayer" unique_id=1226773]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_csc6h"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_brpso"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4ulav"]
+
+[node name="MainGameScene" type="Control" unique_id=418016986]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="ParallaxControl" parent="." unique_id=1927393050 instance=ExtResource("1_4bvgx")]
+z_index = -10
+z_as_relative = false
+layout_mode = 1
+size_flags_horizontal = 4
+size_flags_vertical = 4
+offset_transform_enabled = false
 
 [node name="GameScene" type="Node2D" parent="." unique_id=614334092]
 
 [node name="PlayerShip" parent="GameScene" unique_id=1348765778 instance=ExtResource("1_eqhe0")]
-position = Vector2(576, 323)
+position = Vector2(588, 424)
+collision_mask = 11
+platform_floor_layers = 4294967040
+
+[node name="WorldBoundaries" type="StaticBody2D" parent="GameScene" unique_id=1579579885]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameScene/WorldBoundaries" unique_id=1129006687]
+position = Vector2(387, 0)
+rotation = 3.1415927
+shape = SubResource("WorldBoundaryShape2D_csc6h")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="GameScene/WorldBoundaries" unique_id=750328498]
+position = Vector2(0, 648)
+shape = SubResource("WorldBoundaryShape2D_brpso")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="GameScene/WorldBoundaries" unique_id=648308810]
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_csc6h")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="GameScene/WorldBoundaries" unique_id=516303032]
+position = Vector2(1152, 0)
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_4ulav")
+
+[node name="EnemyBasicTemplate" parent="." unique_id=1867869962 instance=ExtResource("3_3mbwn")]
+position = Vector2(800, 136)
 
 [connection signal="PlayerShipPass" from="GameScene/PlayerShip" to="ParallaxControl" method="_on_player_ship_player_ship_pass"]

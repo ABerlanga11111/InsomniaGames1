@@ -1,11 +1,15 @@
 [gd_scene format=3 uid="uid://dix356h1kitty"]
 
-[ext_resource type="Script" uid="uid://vl3pj3hv8lku" path="res://Scripts/bullet.gd" id="1_14k46"]
+[ext_resource type="Script" uid="uid://vl3pj3hv8lku" path="res://Scripts/BulletScripts/bullet.gd" id="1_14k46"]
 [ext_resource type="Texture2D" uid="uid://dewlhen067sfd" path="res://icon.svg" id="1_vlxeq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_csc6h"]
 
 [node name="Area2D" type="Area2D" unique_id=2025747094]
+z_index = 4
+z_as_relative = false
+collision_layer = 4
+collision_mask = 2
 script = ExtResource("1_14k46")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=2116318800]
@@ -18,4 +22,5 @@ modulate = Color(0.7443777, 0.74382114, 0, 1)
 scale = Vector2(0.140625, 0.1875)
 texture = ExtResource("1_vlxeq")
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
