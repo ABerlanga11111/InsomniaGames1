@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://c7tn06ba8fasx"]
+
+[node name="MainMenu" type="Control" unique_id=384863535]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="Node" parent="." unique_id=1201068667]
+
+[node name="CenterContainer" type="Node" parent="." unique_id=578944203]
+
+[node name="MenuLayout" type="Node" parent="CenterContainer" unique_id=678144207]
+
+[node name="GameTitle" type="Node" parent="CenterContainer/MenuLayout" unique_id=64387065]
+
+[node name="PlayButton" type="Node" parent="CenterContainer/MenuLayout" unique_id=1190623562]
+
+[node name="SettingsButton" type="Node" parent="CenterContainer/MenuLayout" unique_id=1529105311]
+
+[node name="QuitButton" type="Node" parent="CenterContainer/MenuLayout" unique_id=922507424]
+
+[node name="Footer" type="Node" parent="." unique_id=778206085]
