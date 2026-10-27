@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://b563d2k3ru258"]
+
+[ext_resource type="Script" uid="uid://bjcb4tw6hh5qo" path="res://Scripts/enemy_basic_template.gd" id="1_gyl10"]
+[ext_resource type="Resource" uid="uid://jqqd3n1xn2h7" path="res://Resources/EnemyStats/EnemyBasicTemplateStats.tres" id="2_arifi"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_csc6h"]
+
+[node name="Enemy" type="CharacterBody2D" unique_id=1268666696]
+script = ExtResource("1_gyl10")
+EnemyStats = ExtResource("2_arifi")
+metadata/_custom_type_script = "uid://bjcb4tw6hh5qo"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1129988601]
+shape = SubResource("CapsuleShape2D_csc6h")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=997820816]
