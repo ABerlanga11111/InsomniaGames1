@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c4tqdky5h1sjd"
+path="res://.godot/imported/Burn The World Waltz .mp3-27b223c925e12b7f774cb8c0fe0a3790.mp3str"
+
+[deps]
+
+source_file="res://audio/Burn The World Waltz .mp3"
+dest_files=["res://.godot/imported/Burn The World Waltz .mp3-27b223c925e12b7f774cb8c0fe0a3790.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

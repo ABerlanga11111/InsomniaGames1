@@ -8,6 +8,8 @@
 size = Vector2(126, 128)
 
 [node name="EnemyBasicTemplate" type="CharacterBody2D" unique_id=1867869962]
+modulate = Color(1, 0, 0, 1)
+z_as_relative = false
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_wwnfk")
@@ -22,7 +24,11 @@ texture = ExtResource("1_lab4i")
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1955512255]
 position = Vector2(0, 19)
 
-[node name="Timer" type="Timer" parent="." unique_id=276737501]
-autostart = true
+[node name="ShootCDTimer" type="Timer" parent="." unique_id=276737501]
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="Line2D" type="Line2D" parent="." unique_id=1654381165]
+points = PackedVector2Array(-39, -38, 3, -4, 45, -38)
+default_color = Color(0, 0, 0, 1)
+sharp_limit = 1.01
+
+[connection signal="timeout" from="ShootCDTimer" to="." method="_on_shoot_cd_timer_timeout"]

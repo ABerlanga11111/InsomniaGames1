@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="WaveTemplate" format=3 uid="uid://bhmoeoy25p6ro"]
+
+[ext_resource type="Script" uid="uid://cltnm4rhp3htl" path="res://Scripts/ResourceScripts/EnemyWaveTemplate.gd" id="1_yneg3"]
+
+[resource]
+script = ExtResource("1_yneg3")
+EnemyCounts = [1.0]
+EnemyTypes = ["res://Scenes/enemy_basic_template.tscn"]
+metadata/_custom_type_script = "uid://cltnm4rhp3htl"

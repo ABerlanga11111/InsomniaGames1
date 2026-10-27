@@ -1,3 +1,28 @@
 [gd_scene format=3 uid="uid://d3pygeluox8pr"]
 
-[node name="WaveManager" type="Node" unique_id=1609066314]
+[ext_resource type="Script" uid="uid://bg11kioguhmkd" path="res://Scripts/wave_manager.gd" id="1_ltg43"]
+[ext_resource type="Resource" uid="uid://bhmoeoy25p6ro" path="res://Resources/WaveTemplates/BasicWave.tres" id="2_6havq"]
+
+[sub_resource type="Curve2D" id="Curve2D_7gog2"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 1154, 0)
+}
+point_count = 2
+
+[node name="Wave_Manager" type="Path2D" unique_id=817221847]
+curve = SubResource("Curve2D_7gog2")
+script = ExtResource("1_ltg43")
+Waves = [ExtResource("2_6havq")]
+
+[node name="Spawn Position" type="PathFollow2D" parent="." unique_id=856559651]
+position = Vector2(-1, 0)
+
+[node name="WaveLifespanTimer" type="Timer" parent="." unique_id=1821774455]
+wait_time = 60.0
+one_shot = true
+
+[node name="WaveSpawnTimer" type="Timer" parent="." unique_id=250111080]
+wait_time = 2.0
+
+[connection signal="timeout" from="WaveLifespanTimer" to="." method="_on_wave_lifespan_timer_timeout"]
+[connection signal="timeout" from="WaveSpawnTimer" to="." method="_on_wave_spawn_timer_timeout"]
