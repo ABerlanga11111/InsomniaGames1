@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://kw82kcbbjtfw"]
+
+[ext_resource type="Script" path="res://Scenes/achievements_menu.gd" id="1_1civv"]
+
+[node name="AchievementsMenu" type="Control" unique_id=1579610461]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1civv")
+
+[node name="Background" type="ColorRect" parent="." unique_id=29103631]
+layout_mode = 0
+offset_left = -273.0
+offset_top = -130.0
+offset_right = 1253.0
+offset_bottom = 577.0
+color = Color(0.03529412, 0.05882353, 0.14117648, 1)
+
+[node name="AchievementTitle" type="Label" parent="." unique_id=425253687]
+layout_mode = 0
+offset_left = 343.0
+offset_top = -2.0
+offset_right = 700.0
+offset_bottom = 64.0
+theme_override_font_sizes/font_size = 40
+text = "ACHIEVEMENTS"
+horizontal_alignment = 1
+
+[node name="BackButton" type="Button" parent="." unique_id=1568096351]
+layout_mode = 0
+offset_left = 442.0
+offset_top = 408.0
+offset_right = 570.0
+offset_bottom = 441.0
+text = "BACK TO MENU"
+
+[node name="FirstBloodLabel" type="Label" parent="." unique_id=275401844]
+layout_mode = 0
+offset_left = 276.0
+offset_top = 72.0
+offset_right = 791.0
+offset_bottom = 106.0
+theme_override_font_sizes/font_size = 24
+text = "🔒 FIRST BLOOD — Destroy your first enemy"
+
+[node name="SurvivorLabel" type="Label" parent="." unique_id=2089954109]
+layout_mode = 0
+offset_left = 276.0
+offset_top = 135.0
+offset_right = 803.0
+offset_bottom = 176.0
+theme_override_font_sizes/font_size = 24
+text = "🔒 SURVIVOR — Survive 5 waves"
+
+[node name="UntouchableLabel" type="Label" parent="." unique_id=1929232752]
+layout_mode = 0
+offset_left = 269.0
+offset_top = 188.0
+offset_right = 917.0
+offset_bottom = 222.0
+theme_override_font_sizes/font_size = 24
+text = "🔒 UNTOUCHABLE — Complete a wave without damage"
+
+[node name="SpaceLegendLabel" type="Label" parent="." unique_id=581620798]
+layout_mode = 0
+offset_left = 264.0
+offset_top = 243.0
+offset_right = 912.0
+offset_bottom = 277.0
+theme_override_font_sizes/font_size = 24
+text = "🔒 SPACE LEGEND — Destroy 100 enemies"
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
