@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://c7tn06ba8fasx"]
 
+[ext_resource type="Script" uid="uid://gbhpj76vg8h5" path="res://Scenes/main_menu.gd" id="1_28flt"]
+
 [node name="MainMenu" type="Control" unique_id=384863535]
 layout_mode = 3
 anchors_preset = 15
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_28flt")
 
 [node name="Background" type="Node" parent="." unique_id=1201068667]
 
