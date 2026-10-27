@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cnm43sm0ytsyv"]
+
+[ext_resource type="Script" uid="uid://vby54kalgk75" path="res://Scripts/PoolManager.gd" id="1_1hwbu"]
+[ext_resource type="PackedScene" uid="uid://dpjbhcfbuqh2e" path="res://Scenes/enemy_bullet_basic.tscn" id="3_obn35"]
+[ext_resource type="PackedScene" uid="uid://caak14tnon3i7" path="res://Scenes/player_bullet.tscn" id="4_0dds0"]
+[ext_resource type="PackedScene" uid="uid://djqn0nl68fgwd" path="res://Scenes/enemy_basic_template.tscn" id="4_5ylw8"]
+[ext_resource type="PackedScene" uid="uid://bh7gvx5liaea6" path="res://Scenes/EnemyHoming.tscn" id="5_0dds0"]
+
+[node name="PoolManager" type="Node" unique_id=743374569]
+script = ExtResource("1_1hwbu")
+scene_templates = {
+"res://Scenes/EnemyHoming.tscn": ExtResource("5_0dds0"),
+"res://Scenes/enemy_basic_template.tscn": ExtResource("4_5ylw8"),
+"res://Scenes/enemy_bullet_basic.tscn": ExtResource("3_obn35"),
+"res://Scenes/player_bullet.tscn": ExtResource("4_0dds0")
+}
+initial_pool_sizes = {
+"res://Scenes/EnemyHoming.tscn": 10,
+"res://Scenes/enemy_basic_template.tscn": 5,
+"res://Scenes/enemy_bullet_basic.tscn": 10,
+"res://Scenes/player_bullet.tscn": 10
+}

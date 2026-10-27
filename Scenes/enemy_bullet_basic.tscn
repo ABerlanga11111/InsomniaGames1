@@ -1,10 +1,19 @@
 [gd_scene format=3 uid="uid://dpjbhcfbuqh2e"]
 
 [ext_resource type="Script" uid="uid://sdxm16r0yv5g" path="res://Scripts/BulletScripts/enemy_bullet_basic.gd" id="1_es4nc"]
-[ext_resource type="Texture2D" uid="uid://dewlhen067sfd" path="res://icon.svg" id="2_4xtih"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_csc6h"]
-size = Vector2(26, 40)
+size = Vector2(20, 36)
+
+[sub_resource type="Gradient" id="Gradient_es4nc"]
+offsets = PackedFloat32Array(0, 0.24867725, 0.6825397, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.93333334, 1, 1, 1, 0.84705883, 1, 1, 1, 0.16078432)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4xtih"]
+gradient = SubResource("Gradient_es4nc")
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 0)
 
 [node name="EnemyBulletBasic" type="Area2D" unique_id=1246828214]
 collision_layer = 8
@@ -15,11 +24,16 @@ metadata/_custom_type_script = "uid://vl3pj3hv8lku"
 shape = SubResource("RectangleShape2D_csc6h")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2039584199]
-scale = Vector2(0.203125, 0.31250003)
-texture = ExtResource("2_4xtih")
+scale = Vector2(0.56249994, 0.84374994)
+texture = SubResource("GradientTexture2D_4xtih")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1878865239]
 rect = Rect2(-6, -10, 12, 20)
 
+[node name="Timer" type="Timer" parent="." unique_id=97538558]
+wait_time = 0.75
+one_shot = true
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

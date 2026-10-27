@@ -1,9 +1,11 @@
 [gd_resource type="Resource" script_class="WaveTemplate" format=3 uid="uid://bhmoeoy25p6ro"]
 
+[ext_resource type="Resource" uid="uid://jqqd3n1xn2h7" path="res://Resources/EnemyStats/EnemyBasicTemplateStats.tres" id="1_cg5ux"]
 [ext_resource type="Script" uid="uid://cltnm4rhp3htl" path="res://Scripts/ResourceScripts/EnemyWaveTemplate.gd" id="1_yneg3"]
+[ext_resource type="Resource" uid="uid://bht3ga7eeqqqk" path="res://Resources/EnemyStats/EnemyHomingStats.tres" id="2_fga4w"]
 
 [resource]
 script = ExtResource("1_yneg3")
-EnemyCounts = [1.0]
-EnemyTypes = ["res://Scenes/enemy_basic_template.tscn"]
+EnemyCounts = [0.5, 1.0]
+EnemyTypes = [ExtResource("1_cg5ux"), ExtResource("2_fga4w")]
 metadata/_custom_type_script = "uid://cltnm4rhp3htl"

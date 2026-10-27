@@ -6,30 +6,41 @@ class_name Enemy
 
 @onready var CurrentHealth = EnemyStats.MaxHealth
 @onready var FireCD = $ShootCDTimer
-@onready var BulletStats : Array = [EnemyStats.BulletDamage, EnemyStats.BulletSpeed, EnemyStats.BulletScale, EnemyStats.BulletModulate]
+@onready var BulletStats : Array = [EnemyStats.BulletDamage, EnemyStats.BulletSpeed, EnemyStats.BulletScale, EnemyStats.BulletModulate, EnemyStats.Homing]
+@onready var ShotCD : float = EnemyStats.ShotCD
 
 var _pool_manager
+var PlayerTarget : PlayerShip = null
 var ableToFire : bool = false
 
 func set_pool_manager(manager: Node) -> void:
 	_pool_manager = manager
 
-func Spawn(SpawnPosition : Vector2, DifficultyScalar : float = 1.0) -> void:
+func set_EnemyStats(newStats : EnemyStats) -> void:
+	EnemyStats = newStats
+	
+	CurrentHealth = EnemyStats.MaxHealth
+	BulletStats  = [EnemyStats.BulletDamage, EnemyStats.BulletSpeed, EnemyStats.BulletScale, EnemyStats.BulletModulate, EnemyStats.Homing]
+
+func Spawn(SpawnPosition : Vector2, PlayerNode : PlayerShip = null, DifficultyScalar : float = 1.0) -> void:
 	CurrentHealth = EnemyStats.MaxHealth * DifficultyScalar
 	global_position = SpawnPosition
-	FireCD.start(1.5)
+	if PlayerNode:
+		PlayerTarget = PlayerNode
+	FireCD.start(ShotCD)
 	moveUp()
 
 func reset() -> void:
 	velocity = Vector2.ZERO
 
-func FireShot(target : Node = null, Homing : bool = false) -> void:
+func FireShot(target : Node = null) -> void:
 	if CurrentHealth >= 0.0 && ableToFire:
-		if target && Homing:
-			pass
+		if target:
+			var bullet : Node = PoolManager.get_object("res://Scenes/enemy_bullet_basic.tscn")
+			bullet.spawn($Marker2D.global_position, Vector2.DOWN, BulletStats, target)
 		else:
 			var bullet : Node = PoolManager.get_object("res://Scenes/enemy_bullet_basic.tscn")
-			bullet.spawn($Marker2D.global_position,Vector2.DOWN, BulletStats, self)
+			bullet.spawn($Marker2D.global_position,Vector2.DOWN, BulletStats)
 
 func take_damage(Damage : int) -> void:
 	CurrentHealth -= Damage
@@ -53,4 +64,4 @@ func return_to_pool() -> void:
 		queue_free()
 
 func _on_shoot_cd_timer_timeout():
-	FireShot()
+	FireShot(PlayerTarget)

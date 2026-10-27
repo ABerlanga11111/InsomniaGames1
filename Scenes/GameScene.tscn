@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cjbbe61mdplq4" path="res://Scenes/parallax_control.tscn" id="1_4bvgx"]
 [ext_resource type="PackedScene" uid="uid://c44pp5c3o6hr" path="res://Scenes/PlayerChar.tscn" id="1_eqhe0"]
 [ext_resource type="PackedScene" uid="uid://byi2r7s7q5xw7" path="res://Scenes/InGameUI.tscn" id="1_jwv4s"]
-[ext_resource type="PackedScene" uid="uid://dni1mq717pypm" path="res://Scenes/Wave_Manager.tscn" id="4_jwv4s"]
+[ext_resource type="PackedScene" uid="uid://d3pygeluox8pr" path="res://Scenes/Wave_Manager.tscn" id="4_jwv4s"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_csc6h"]
 
@@ -62,3 +62,4 @@ shape = SubResource("WorldBoundaryShape2D_4ulav")
 position = Vector2(0, -150)
 
 [connection signal="PlayerShipPass" from="GameScene/PlayerShip" to="ParallaxControl" method="_on_player_ship_player_ship_pass"]
+[connection signal="PlayerShipPass" from="GameScene/PlayerShip" to="GameScene/WaveManager" method="_on_player_ship_player_ship_pass"]

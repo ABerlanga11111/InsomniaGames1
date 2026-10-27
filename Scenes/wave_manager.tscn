@@ -9,7 +9,7 @@ _data = {
 }
 point_count = 2
 
-[node name="Wave_Manager" type="Path2D" unique_id=817221847]
+[node name="wave_manager" type="Path2D" unique_id=817221847]
 curve = SubResource("Curve2D_7gog2")
 script = ExtResource("1_ltg43")
 Waves = [ExtResource("2_6havq")]

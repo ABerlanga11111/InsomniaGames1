@@ -4,4 +4,8 @@
 
 [resource]
 script = ExtResource("1_hi37u")
+BulletDamage = 0.5
+BulletSpeed = 150.0
+BulletScale = Vector2(0.8, 0.8)
+BulletModulate = Color(0.09484614, 0.404435, 0.99999994, 1)
 metadata/_custom_type_script = "uid://dmdjvx2kuv67o"
