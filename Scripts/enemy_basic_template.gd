@@ -44,6 +44,7 @@ func moveUp():
 	tween.tween_property(self, "global_position:y", 150.0, 1.0)
 	await get_tree().create_timer(1.0).timeout
 	tween.kill()
+	ableToFire = true
 
 func return_to_pool() -> void:
 	if _pool_manager:

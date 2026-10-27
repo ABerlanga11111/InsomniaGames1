@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://d3pygeluox8pr"]
+[gd_scene format=3 uid="uid://dwdd3nysy2ecf"]
 
 [ext_resource type="Script" uid="uid://bg11kioguhmkd" path="res://Scripts/wave_manager.gd" id="1_ltg43"]
 [ext_resource type="Resource" uid="uid://bhmoeoy25p6ro" path="res://Resources/WaveTemplates/BasicWave.tres" id="2_6havq"]
