@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bq14qhyusar44"]
+[gd_scene format=3 uid="uid://bh7gvx5liaea6"]
 
 [ext_resource type="Script" uid="uid://bjcb4tw6hh5qo" path="res://Scripts/enemy_basic_template.gd" id="1_gyl10"]
 [ext_resource type="Resource" uid="uid://jqqd3n1xn2h7" path="res://Resources/EnemyStats/EnemyBasicTemplateStats.tres" id="2_arifi"]

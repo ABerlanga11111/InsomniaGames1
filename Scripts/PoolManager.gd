@@ -43,13 +43,13 @@ func return_object(obj: Node, scene_path: String) -> void:
 	pools[scene_path].append(obj)
 
 func _activate(obj: Node) -> void:
-	obj.show()
+	obj.set_visible(true)
 	obj.process_mode = Node.PROCESS_MODE_INHERIT # Resume processing
 	_set_collisions_disabled(obj, false)
 	
 
 func _deactivate(obj: Node) -> void:
-	obj.hide()
+	obj.set_visible(false)
 	obj.set_deferred("ProcessMode", Node.PROCESS_MODE_DISABLED)	#Stop all processing
 	_set_collisions_disabled(obj, true)
 	if obj.has_method("reset"):

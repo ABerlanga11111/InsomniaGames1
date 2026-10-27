@@ -25,7 +25,6 @@ texture = ExtResource("1_lab4i")
 position = Vector2(0, 19)
 
 [node name="ShootCDTimer" type="Timer" parent="." unique_id=276737501]
-autostart = true
 
 [node name="Line2D" type="Line2D" parent="." unique_id=1654381165]
 points = PackedVector2Array(-39, -38, 3, -4, 45, -38)

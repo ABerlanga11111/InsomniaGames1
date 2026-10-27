@@ -17,7 +17,7 @@ func set_pool_manager(manager: Node) -> void:
 func Spawn(SpawnPosition : Vector2, DifficultyScalar : float = 1.0) -> void:
 	CurrentHealth = EnemyStats.MaxHealth * DifficultyScalar
 	global_position = SpawnPosition
-	FireCD.start(2.0)
+	FireCD.start(1.5)
 	moveUp()
 
 func reset() -> void:
@@ -44,6 +44,7 @@ func moveUp():
 	tween.tween_property(self, "global_position:y", 150.0, 1.0)
 	await get_tree().create_timer(1.0).timeout
 	tween.kill()
+	ableToFire = true
 
 func return_to_pool() -> void:
 	if _pool_manager:
