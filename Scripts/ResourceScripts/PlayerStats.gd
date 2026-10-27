@@ -10,5 +10,6 @@ class_name PlayerStats
 @export var BulletDamage : float = 1.0
 @export var BulletSpeed : float = 250.0
 @export var BulletScale : Vector2 = Vector2(1.0,1.0)
+@export var BulletModulate : Color = Color(1.0, 1.0, 1.0, 1.0)
 #Potential future values for different bullet firing patterns
 #@export_enum("Straight", "Sinusoidal", "Homing") 

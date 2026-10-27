@@ -19,8 +19,8 @@ func _ready():
 			var obj := scene.instantiate()
 			if obj.has_method("set_pool_manager"):
 				obj.set_pool_manager(self)
-			add_child(obj)
 			_deactivate(obj)
+			add_child(obj)
 			pools[scene_path].append(obj)
 
 func get_object(scene_path: String) -> Node:
@@ -50,7 +50,7 @@ func _activate(obj: Node) -> void:
 
 func _deactivate(obj: Node) -> void:
 	obj.hide()
-	obj.process_mode = Node.PROCESS_MODE_DISABLED	#Stop all processing
+	obj.set_deferred("ProcessMode", Node.PROCESS_MODE_DISABLED)	#Stop all processing
 	_set_collisions_disabled(obj, true)
 	if obj.has_method("reset"):
 		obj.reset()		#Return state to its initial value

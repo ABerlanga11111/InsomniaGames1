@@ -6,6 +6,7 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_csc6h"]
 
 [node name="Area2D" type="Area2D" unique_id=2025747094]
+visible = false
 z_index = 4
 z_as_relative = false
 collision_layer = 4
