@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dpjbhcfbuqh2e"]
 
-[ext_resource type="Script" uid="uid://sdxm16r0yv5g" path="res://Scripts/BulletScripts/enemy_bullet_basic.gd" id="1_es4nc"]
+[ext_resource type="Script" uid="uid://sdxm16r0yv5g" path="res://Scripts/enemy_bullet_basic.gd" id="1_es4nc"]
 [ext_resource type="Texture2D" uid="uid://dewlhen067sfd" path="res://icon.svg" id="2_4xtih"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_csc6h"]
@@ -9,6 +9,7 @@ size = Vector2(26, 40)
 [node name="EnemyBulletBasic" type="Area2D" unique_id=1246828214]
 collision_layer = 8
 script = ExtResource("1_es4nc")
+Damage = 1
 metadata/_custom_type_script = "uid://vl3pj3hv8lku"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=588145439]

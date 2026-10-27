@@ -10,4 +10,3 @@ class_name EnemyStats
 @export var BulletDamage : float = 1.0
 @export var BulletSpeed : float = 300.0
 @export var BulletScale : Vector2 = Vector2(1.0,1.0)
-@export var BulletModulate : Color = Color(1.0, 1.0, 1.0, 1.0)
