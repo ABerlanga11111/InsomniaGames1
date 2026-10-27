@@ -6,6 +6,7 @@ class_name Enemy
 
 @onready var CurrentHealth = EnemyStats.MaxHealth
 @onready var FireCD = $ShootCDTimer
+@onready var HealthBar = $HealthBar
 @onready var BulletStats : Array = [EnemyStats.BulletDamage, EnemyStats.BulletSpeed, EnemyStats.BulletScale, EnemyStats.BulletModulate, EnemyStats.Homing]
 @onready var ShotCD : float = EnemyStats.ShotCD
 
@@ -20,6 +21,8 @@ func set_EnemyStats(newStats : EnemyStats) -> void:
 	EnemyStats = newStats
 	
 	CurrentHealth = EnemyStats.MaxHealth
+	HealthBar.set_max(EnemyStats.MaxHealth)
+	HealthBar.set_value(CurrentHealth)
 	BulletStats  = [EnemyStats.BulletDamage, EnemyStats.BulletSpeed, EnemyStats.BulletScale, EnemyStats.BulletModulate, EnemyStats.Homing]
 
 func Spawn(SpawnPosition : Vector2, PlayerNode : PlayerShip = null, DifficultyScalar : float = 1.0) -> void:
@@ -44,6 +47,7 @@ func FireShot(target : Node = null) -> void:
 
 func take_damage(Damage : int) -> void:
 	CurrentHealth -= Damage
+	HealthBar.set_value(CurrentHealth)
 	if CurrentHealth <= 0.0:
 		FireCD.stop()
 		return_to_pool()
@@ -52,7 +56,7 @@ func take_damage(Damage : int) -> void:
 func moveUp():
 	var tween = get_tree().create_tween().set_trans(Tween.TRANS_ELASTIC)
 	
-	tween.tween_property(self, "global_position:y", 150.0, 1.0)
+	tween.tween_property(self, "global_position:y", (150.0 + randf_range(-10.0, 10.0)), 1.0)
 	await get_tree().create_timer(1.0).timeout
 	tween.kill()
 	ableToFire = true

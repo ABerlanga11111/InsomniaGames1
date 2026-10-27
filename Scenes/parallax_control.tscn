@@ -1,9 +1,23 @@
 [gd_scene format=3 uid="uid://cjbbe61mdplq4"]
 
 [ext_resource type="Script" uid="uid://dvq64vqp6ykjf" path="res://Scripts/parallax_control.gd" id="1_tikn2"]
-[ext_resource type="Texture2D" uid="uid://dewlhen067sfd" path="res://icon.svg" id="2_x7s15"]
+[ext_resource type="Texture2D" uid="uid://c0jeuxrygqn0k" path="res://Resources/Visuals/Background1.png" id="2_x7s15"]
+[ext_resource type="Texture2D" uid="uid://b16u6owgnxlfi" path="res://Resources/Visuals/Background.png" id="3_r2omg"]
+[ext_resource type="Texture2D" uid="uid://dww5gurkyiwr7" path="res://Resources/Visuals/Stars.png" id="3_sqrvk"]
+[ext_resource type="Texture2D" uid="uid://dfcl0wo6e60ey" path="res://Resources/Visuals/Foreground.png" id="5_sqrvk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1boit"]
+atlas = ExtResource("2_x7s15")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wd4vq"]
+atlas = ExtResource("3_sqrvk")
+region = Rect2(5.6, 0, 0, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqrvk"]
+atlas = ExtResource("5_sqrvk")
 
 [node name="ParallaxControl" type="Control" unique_id=1927393050]
+texture_repeat = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,13 +34,15 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -115.0
+offset_left = -149.33331
 offset_top = -84.0
-offset_right = 115.0
+offset_right = 149.3335
 offset_bottom = 84.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_x7s15")
+texture = SubResource("AtlasTexture_1boit")
+expand_mode = 3
+stretch_mode = 5
 
 [node name="BackLayer" type="TextureRect" parent="." unique_id=79477488]
 modulate = Color(1, 1, 1, 0.41568628)
@@ -36,13 +52,44 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -513.0
+offset_left = -513.7778
 offset_top = -289.0
-offset_right = 513.0
+offset_right = 513.77783
 offset_bottom = 289.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(513, 289)
-texture = ExtResource("2_x7s15")
+texture = SubResource("AtlasTexture_wd4vq")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="MiddleLayer" type="TextureRect" parent="." unique_id=31859377]
+visible = false
+modulate = Color(1, 1, 1, 0.49803922)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1037.0
+offset_top = -516.0
+offset_right = 883.0
+offset_bottom = 564.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_r2omg")
+
+[node name="TopLayer" type="TextureRect" parent="." unique_id=1057166825]
+self_modulate = Color(1, 1, 1, 0.57254905)
+z_index = 6
+texture_repeat = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+texture = SubResource("AtlasTexture_sqrvk")
+stretch_mode = 1
 
 [connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]

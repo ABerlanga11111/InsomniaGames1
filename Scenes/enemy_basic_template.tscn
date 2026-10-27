@@ -9,7 +9,17 @@ size = Vector2(90, 90)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_es4nc"]
 atlas = ExtResource("3_ucdn6")
-region = Rect2(444.42334, 0, 91.24426, 91.76831)
+region = Rect2(444.42334, 0, 90.76221, 91.76831)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_csc6h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_brpso"]
+bg_color = Color(0.7529412, 0.32156864, 0.21568628, 1)
+skew = Vector2(0.2, 0)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [node name="EnemyBasicTemplate" type="CharacterBody2D" unique_id=1867869962]
 z_as_relative = false
@@ -28,5 +38,16 @@ texture = SubResource("AtlasTexture_es4nc")
 position = Vector2(0, 19)
 
 [node name="ShootCDTimer" type="Timer" parent="." unique_id=276737501]
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=2079192913]
+offset_left = -31.0
+offset_top = -73.0
+offset_right = 35.0
+offset_bottom = -60.0
+theme_override_styles/background = SubResource("StyleBoxEmpty_csc6h")
+theme_override_styles/fill = SubResource("StyleBoxFlat_brpso")
+max_value = 3.0
+value = 3.0
+show_percentage = false
 
 [connection signal="timeout" from="ShootCDTimer" to="." method="_on_shoot_cd_timer_timeout"]
