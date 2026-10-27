@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cjbbe61mdplq4" path="res://Scenes/parallax_control.tscn" id="1_4bvgx"]
 [ext_resource type="PackedScene" uid="uid://c44pp5c3o6hr" path="res://Scenes/PlayerChar.tscn" id="1_eqhe0"]
+[ext_resource type="PackedScene" uid="uid://byi2r7s7q5xw7" path="res://Scenes/InGameUI.tscn" id="1_jwv4s"]
 [ext_resource type="PackedScene" uid="uid://djqn0nl68fgwd" path="res://Scenes/enemy_basic_template.tscn" id="3_3mbwn"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_csc6h"]
@@ -17,6 +18,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="InGameUI" parent="." unique_id=2129152576 instance=ExtResource("1_jwv4s")]
+layout_mode = 0
 
 [node name="ParallaxControl" parent="." unique_id=1927393050 instance=ExtResource("1_4bvgx")]
 z_index = -10
