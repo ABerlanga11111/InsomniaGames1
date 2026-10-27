@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dscdbp15p8via"]
 
-[ext_resource type="Script" uid="uid://c8jxnyf2sqr1t" path="res://Scenes/statistics_menu.gd" id="1_gyks6"]
+[ext_resource type="Script" uid="uid://c8jxnyf2sqr1t" path="res://Scripts/UIScripts/statistics_menu.gd" id="1_gyks6"]
 
 [node name="StatisticsMenu" type="Control" unique_id=480535968]
 layout_mode = 3

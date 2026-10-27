@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ddkqh6hu6tw8g"]
 
-[ext_resource type="Script" uid="uid://bhlj0meuo4acf" path="res://Scenes/achievements_menu.gd" id="1_1civv"]
+[ext_resource type="Script" uid="uid://bhlj0meuo4acf" path="res://Scripts/UIScripts/achievements_menu.gd" id="1_1civv"]
+
 
 [node name="AchievementsMenu" type="Control" unique_id=1579610461]
 layout_mode = 3
